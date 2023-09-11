@@ -1,49 +1,18 @@
 const router = require("express").Router();
-const Person = require("../models/Person");
+const Person = require("../services/Person");
+const {
+	validateAddPerson,
+	validateGetPerson,
+	validateUpdatePerson,
+	validateDeletePerson,
+} = require("../middleware/validator");
 
-/**
- * CREATE: Adding a new person to the database
- */
-router.post("/", async (req, res) => {
-	const person = req.body;
+router.post("/", validateAddPerson, Person.add);
 
-	const response = await Person.add(person);
+router.get("/:id", validateGetPerson, Person.get);
 
-	res.send(response);
-});
+router.put("/:id", validateUpdatePerson, Person.update);
 
-/**
- * READ: Getting a person from the database
- */
-router.get("/:id", async (req, res) => {
-	const id = req.params.id;
-
-	const response = await Person.get(id);
-
-	res.send(response);
-});
-
-/**
- * UPDATE: Updating a person in the database
- */
-router.put("/:id", async (req, res) => {
-	const id = req.params.id;
-	const person = req.body;
-
-	const response = await Person.update(id, person);
-
-	res.send(response);
-});
-
-/**
- * DELETE: Deleting a person from the database
- */
-router.delete("/:id", async (req, res) => {
-	const id = req.params.id;
-
-	const response = await Person.delete(id);
-
-	res.send(response);
-});
+router.delete("/:id", validateDeletePerson, Person.delete);
 
 module.exports = router;
