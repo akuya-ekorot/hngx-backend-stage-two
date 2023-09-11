@@ -2,14 +2,6 @@
 const supabase = require("../utils/supabase");
 
 class Person {
-	constructor(person) {
-		this.id = person.id;
-		this.name = person.name;
-		this.email = person.email;
-		this.age = person.age;
-		this.country = person.country;
-	}
-
 	/**
 	 * Add a new person to the database
 	 * @param {Person} person
