@@ -12,7 +12,11 @@ class PersonModel {
 			.single();
 
 		if (error) {
-			return { error };
+			return {
+				code: "500",
+				message: "Person could not be added to the database",
+				error,
+			};
 		}
 
 		return { code: 201, message: "Person is added to the database", data };
@@ -29,13 +33,19 @@ class PersonModel {
 			.single();
 
 		if (error) {
-			return { error };
+			return {
+				code: "500",
+				message: "Person could not be retrieved from the database",
+				data: null,
+				error,
+			};
 		}
 
 		return {
 			code: 200,
 			message: "Person is retrieved from the database",
 			data,
+			error: null,
 		};
 	}
 

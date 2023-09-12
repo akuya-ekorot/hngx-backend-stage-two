@@ -8,7 +8,7 @@ class Person {
 		const response = await PersonModel.add(person);
 
 		if (response.error) {
-			return res.status(500).json({ error: response.error });
+			return res.status(500).json(response);
 		}
 
 		res.status(response.code).json(response);
@@ -20,7 +20,7 @@ class Person {
 		const response = await PersonModel.get(id);
 
 		if (response.error) {
-			return res.status(500).json({ error: response.error });
+			return res.status(500).json(response);
 		}
 
 		res.status(response.code).json(response);
