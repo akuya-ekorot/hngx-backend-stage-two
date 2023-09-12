@@ -7,7 +7,6 @@ const validateAddPerson = [
 		.escape()
 		.withMessage("Name must be a valid string"),
 	body("email").notEmpty().isEmail().withMessage("Email must be a valid email"),
-	body("age").notEmpty().isInt().withMessage("Age must be an integer"),
 	body("country")
 		.notEmpty()
 		.isString()
@@ -47,7 +46,6 @@ const validateUpdatePerson = [
 		.optional()
 		.withMessage("Name must be a valid string"),
 	body("email").isEmail().optional().withMessage("Email must be a valid email"),
-	body("age").isInt().optional().withMessage("Age must be an integer"),
 
 	(req, res, next) => {
 		const errors = validationResult(req);
