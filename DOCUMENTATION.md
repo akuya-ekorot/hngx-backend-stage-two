@@ -30,7 +30,7 @@ The base API endpoint for the `Person` resource is `/api`.
 <br />
 The allowed HTTP methods on the endpoint are `GET`, `POST`, `PUT` and `DELETE`.
 
-### `GET` Request
+### Retrieve a `Person` using a `GET` Request
 
 To perform a `GET` request, use the `/api/<user_id>` endpoint. This will retrieve a user with the specified `<user_id>`.
 
@@ -69,7 +69,7 @@ If the `Person` doesn't exist in the database, the error response will look like
 }
 ```
 
-### `POST` Request
+### Create a new `Person` using a `POST` Request
 
 To perform a `POST` request, use the `/api` endpoint, with a `JSON` payload in the request body. This will create a new `Person` in the database.
 <br />
@@ -122,4 +122,40 @@ If you don't pass a required field like the name field, or pass a value that's n
 		}
 	]
 }
+```
+
+### Update a `Person` using a `PUT` Request
+
+To update a `Person` resource, send a `PUT` request with a `JSON` payload to the `/api/<user_id>` endpoint. Where the `<user_id>` is the id of the `Person`.
+
+#### Example `JSON` payload
+
+```json
+{
+	"name": "Brian Akuya Ekorot"
+}
+```
+
+#### Successful Request
+
+A successful request to this endpoint returns the following response.
+
+```json
+{
+	"code": 200,
+	"message": "Person is updated in the database",
+	"data": {
+		"id": 14,
+		"created_at": "2023-09-12T07:02:49.858599+00:00",
+		"name": "Brian Akuya Ekorot",
+		"email": "akuyaekorot@gmail.com",
+		"country": "Kenya"
+	}
+}
+```
+
+#### Error Response
+
+```json
+
 ```

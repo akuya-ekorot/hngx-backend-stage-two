@@ -15,11 +15,17 @@ class PersonModel {
 			return {
 				code: "500",
 				message: "Person could not be added to the database",
+				data: null,
 				error,
 			};
 		}
 
-		return { code: 201, message: "Person is added to the database", data };
+		return {
+			code: 201,
+			message: "Person is added to the database",
+			data,
+			error: null,
+		};
 	}
 
 	/**
@@ -61,10 +67,20 @@ class PersonModel {
 			.single();
 
 		if (error) {
-			return { error };
+			return {
+				code: "500",
+				message: "Person could not be retrieved from the database",
+				data: null,
+				error,
+			};
 		}
 
-		return { code: 200, message: "Person is updated in the database", data };
+		return {
+			code: 200,
+			message: "Person is updated in the database",
+			data,
+			error: null,
+		};
 	}
 
 	/**
@@ -74,10 +90,18 @@ class PersonModel {
 		const { error } = await supabase.from("person").delete().eq("id", id);
 
 		if (error) {
-			return { error };
+			return {
+				code: "500",
+				message: "Person could not be deleted from the database",
+				error,
+			};
 		}
 
-		return { code: 200, message: "Person is deleted from the database" };
+		return {
+			code: 200,
+			message: "Person is deleted from the database",
+			error: null,
+		};
 	}
 }
 
