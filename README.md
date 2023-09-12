@@ -4,6 +4,14 @@
 
 Simple REST API capable of CRUD operations on a `Person` resource. The API interfaces with a PostgreSQL database using the Subapase service.
 
+### Hosted Version
+
+A hosted version of the API can be found [here](https://hngx-backend-stage-two-njzr.onrender.com)
+
+### Postman Collection
+
+A postman collection for the API can be found [here](https://gold-spaceship-212378.postman.co/workspace/HNGX-Workspace~e1d36fe1-5f2f-4fdd-8633-18e7cf7c0bd2/collection/29474066-5d004eda-1afe-435c-9bc1-9da87c03b62b?action=share&creator=29474066)
+
 ## UML Diagram
 
 ![UML Diagram](./assets/uml.png)
