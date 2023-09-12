@@ -19,7 +19,7 @@ Here's a JSON representation of the `Person` resource.
 	"id": 12,
 	"created_at": "2023-09-11T12:31:20.214277+00:00",
 	"name": "Akuya Ekorot",
-	"email": "akuyaekorot@gmail.com",
+	"email": "example@email.com",
 	"country": "Kenya"
 }
 ```
@@ -46,7 +46,7 @@ If the user exists, a success response will look like this.
 		"id": 12,
 		"created_at": "2023-09-11T12:31:20.214277+00:00",
 		"name": "Akuya Ekorot",
-		"email": "akuyaekorot@gmail.com",
+		"email": "example@email.com",
 		"country": "Kenya"
 	}
 }
@@ -66,5 +66,60 @@ If the `Person` doesn't exist in the database, the error response will look like
 		"hint": null,
 		"message": "JSON object requested, multiple (or no) rows returned"
 	}
+}
+```
+
+### `POST` Request
+
+To perform a `POST` request, use the `/api` endpoint, with a `JSON` payload in the request body. This will create a new `Person` in the database.
+<br />
+Here's how the `payload` should look like.
+
+```json
+{
+	"name": "Akuya Ekorot",
+	"email": "example@email.com",
+	"country": "Kenya"
+}
+```
+
+#### Successful Response
+
+If the request is successful, the server returns a success response like so.
+
+```json
+{
+	"code": 201,
+	"message": "Person is added to the database",
+	"data": {
+		"id": 14,
+		"created_at": "2023-09-12T07:02:49.858599+00:00",
+		"name": "Akuya Ekorot",
+		"email": "example@email.com",
+		"country": "Kenya"
+	}
+}
+```
+
+#### Error Response
+
+If you don't pass a required field like the name field, or pass a value that's not a string to any of the fields, you'll get an error response like this.
+
+```json
+{
+	"errors": [
+		{
+			"type": "field",
+			"msg": "Invalid value",
+			"path": "name",
+			"location": "body"
+		},
+		{
+			"type": "field",
+			"msg": "Name must be a valid string",
+			"path": "name",
+			"location": "body"
+		}
+	]
 }
 ```
