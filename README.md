@@ -20,14 +20,9 @@ A postman collection for the API can be found [here](https://gold-spaceship-2123
 
 ### Supabase
 
-- Set up a [Supabase](https://supabase.com) project.
-- Copy the project url and the public anon key under the API tab in the project settings.
-
-### Environment Variables
-
-- Copy the .env.example file and name it .env
-- Add the Supabase project url to the variable `SB_URL` and the public anon key to the `SB_KEY` variable.
-- Optional: You can set up an optional `PORT`.
+Copy the `.env.example` file and rename it to `.env`. This should contain the Supabase project url and the public anon key.
+<br />
+Optional: You can set up an optional `PORT`.
 
 ### Install Dependencies
 
