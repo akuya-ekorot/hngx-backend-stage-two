@@ -1,9 +1,3 @@
-# HNGIX BACKEND TASK TWO
-
-## Task Brief
-
-Simple REST API capable of CRUD operations on a `Person` resource. The API interfaces with a PostgreSQL database using the Subapase service.
-
 ## Specifications for the Person Resource
 
 The `Person` resource has the following fields, `name`, `email` and `country`.
