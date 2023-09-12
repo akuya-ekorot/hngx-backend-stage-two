@@ -33,7 +33,7 @@ class Person {
 		const response = await PersonModel.update(id, person);
 
 		if (response.error) {
-			return res.status(500).json({ error: response.error });
+			return res.status(500).json(response);
 		}
 
 		res.status(response.code).json(response);
@@ -45,7 +45,7 @@ class Person {
 		const response = await PersonModel.delete(id);
 
 		if (response.error) {
-			return res.status(500).json({ error: response.error });
+			return res.status(500).json(response);
 		}
 
 		res.status(response.code).json(response);

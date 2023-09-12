@@ -69,7 +69,7 @@ class PersonModel {
 		if (error) {
 			return {
 				code: "500",
-				message: "Person could not be retrieved from the database",
+				message: "Person could not be updated in the database",
 				data: null,
 				error,
 			};

@@ -157,5 +157,31 @@ A successful request to this endpoint returns the following response.
 #### Error Response
 
 ```json
+{
+	"code": "500",
+	"message": "Person could not be updated in the database",
+	"data": null,
+	"error": {
+		"code": "PGRST116",
+		"details": "The result contains 0 rows",
+		"hint": null,
+		"message": "JSON object requested, multiple (or no) rows returned"
+	}
+}
+```
 
+### Delete a `Person` using a `DELETE` Request
+
+To delete `Person` resource, send a `DELETE` request to the `/api/<user_id>` endpoint.
+
+#### Successful Request
+
+A successful `DELETE` request will return the following response.
+
+```json
+{
+	"code": 200,
+	"message": "Person is deleted from the database",
+	"error": null
+}
 ```
