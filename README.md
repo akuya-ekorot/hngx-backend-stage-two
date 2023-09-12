@@ -4,6 +4,10 @@
 
 Simple REST API capable of CRUD operations on a `Person` resource. The API interfaces with a PostgreSQL database using the Subapase service.
 
+## UML Diagram
+
+![UML Diagram](./assets/uml.png)
+
 ## Setup Instructions
 
 ### Supabase
